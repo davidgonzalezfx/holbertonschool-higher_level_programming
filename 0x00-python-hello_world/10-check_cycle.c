@@ -14,11 +14,12 @@ int check_cycle(listint_t *list)
 
 	for (; forwd != NULL;)
 	{
+		if (back == forwd)
+			return (1);
+
 		back = back->next;
 		forwd = forwd->next->next;
 
-		if (back == forwd)
-			return (1);
 	}
 	return (0);
 }
