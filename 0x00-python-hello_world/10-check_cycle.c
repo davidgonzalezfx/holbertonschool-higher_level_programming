@@ -12,7 +12,7 @@ int check_cycle(listint_t *list)
 	if (!list || !list->next)
 		return (0);
 
-	for (; forwd != NULL;)
+	for (; forwd && back && forwd->next;)
 	{
 		if (back == forwd)
 			return (1);
