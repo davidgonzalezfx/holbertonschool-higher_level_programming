@@ -1,3 +1,5 @@
+#include <stdlib.h>
+#include <stdio.h>
 #include "lists.h"
 /**
  * insert_node - Insert node in order mode to linkedlist
