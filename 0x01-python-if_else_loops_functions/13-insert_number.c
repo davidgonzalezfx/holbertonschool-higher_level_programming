@@ -5,7 +5,7 @@
  * insert_node - Insert node in order mode to linkedlist
  * @head: head
  * @number: num to be added
- * Return: the head of node
+ * Return: the address of new node
  */
 listint_t *insert_node(listint_t **head, int number)
 {
@@ -17,16 +17,16 @@ listint_t *insert_node(listint_t **head, int number)
 
 	new->n = number;
 
-	if (number < actual->n || *head == NULL)
+	if (*head == NULL || (*head)->n > number)
 	{
 		new->next = *head;
 		*head = new;
 		return (new);
 	}
 
-	while (actual && actual->next)
+	while (actual->next)
 	{
-		if (number <= (actual->next)->n)
+		if ((actual->next)->n >= number)
 		{
 			new->next = actual->next;
 			actual->next = new;
@@ -35,7 +35,7 @@ listint_t *insert_node(listint_t **head, int number)
 		actual = actual->next;
 	}
 
-	new->next = NULL;;
+	new->next = NULL;
 	actual->next = new;
 
 	return (new);
