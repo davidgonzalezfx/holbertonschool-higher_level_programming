@@ -1,10 +1,17 @@
 #include "lists.h"
 #include <stdlib.h>
 
+/**
+ * check_palindrome - recursive check
+ * @init: first node
+ * @last: size of linkedlist
+ * Return: 1 if pass - 0 otherwise
+ */
 int check_palindrome(listint_t *init, int *last)
 {
 	listint_t *end = init;
 	int i;
+
 	if (!init)
 		return (0);
 
@@ -20,7 +27,7 @@ int check_palindrome(listint_t *init, int *last)
 }
 
 /**
- * is_palindrome(listint_t **head) - check for palindrome linkedlist
+ * is_palindrome - check for palindrome linkedlist
  * @head: linkedlist
  * Return: 1 if palindrome, 0 otherwise
  */
@@ -35,6 +42,5 @@ int is_palindrome(listint_t **head)
 	for (; tmp->next; last++)
 		tmp = tmp->next;
 
-	return check_palindrome(init, &last); 	
-	
+	return (check_palindrome(init, &last));
 }
