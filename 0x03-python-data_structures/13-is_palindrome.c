@@ -13,7 +13,7 @@ int check_palindrome(listint_t *init, int *last)
 	int i;
 
 	if (!init)
-		return (0);
+		return (1);
 
 	for (i = 0; i < *last; i++)
 		end = end->next;
