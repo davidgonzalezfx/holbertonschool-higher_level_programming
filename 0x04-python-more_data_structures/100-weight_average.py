@@ -1,2 +1,11 @@
 #!/usr/bin/python3
-def square_matrix_map(matrix=[]):
+def weight_average(my_list=[]):
+    if not my_list:
+        return 0
+
+    score = 0
+    gweight = 0
+    for x, y in my_list:
+        score += (x * y)
+        weight += y
+    return score / weight
