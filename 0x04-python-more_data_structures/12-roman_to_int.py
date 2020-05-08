@@ -15,15 +15,11 @@ def roman_to_int(roman_string):
     }
 
     limit = len(roman_string)
-    for ch in roman_string:
-        for key, value in nums.items():
-            if ch is key:
-                if roman_string.index(ch) == limit - 1:
-                    roman += value
-                    return roman
-                nxt = roman_string[roman_string.index(ch) + 1]
-                if value >= nums.get(nxt):
-                    roman += value
-                else:
-                    roman -= value
+    for ch in range(0, limit):
+        if ch == len(roman_string) - 1:
+            roman += nums[roman_string[ch]]
+        elif nums[roman_string[ch]] >= nums[roman_string[ch + 1]]:
+            roman += nums[roman_string[ch]]
+        else:
+            roman -= nums[roman_string[ch]]
     return roman
