@@ -20,7 +20,7 @@ def roman_to_int(roman_string):
             if ch is key:
                 if roman_string.index(ch) == limit - 1:
                     roman += value
-                    break
+                    return roman
                 nxt = roman_string[roman_string.index(ch) + 1]
                 if value >= nums.get(nxt):
                     roman += value
