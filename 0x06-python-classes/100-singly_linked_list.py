@@ -1,24 +1,34 @@
 #!/usr/bin/python3
+""" Working with singly linked list in python
+    Class Node
+    Class SinglyLinkedList
+"""
+
+
 class Node:
     """Class constructor"""
     def __init__(self, data, next_node=None):
         self.data = data
         self.next_node = next_node
 
+    """Data getter"""
     @property
     def data(self):
         return self.__data
 
+    """Next_node getter"""
     @property
     def next_node(self):
         return self.__next_node
 
+    """Data setter"""
     @data.setter
     def data(self, value):
         if type(value) is not int:
             raise TypeError('data must be an integer')
         self.__data = value
 
+    """Next_node setter"""
     @next_node.setter
     def next_node(self, value):
         if value is None or isinstance(value, Node):
@@ -32,6 +42,7 @@ class SinglyLinkedList:
     def __init__(self):
         self.__head = None
 
+    """print(obj) behavior"""
     def __str__(self):
         actual = self.__head
         to_print = ''
@@ -42,6 +53,7 @@ class SinglyLinkedList:
             actual = actual.next_node
         return to_print
 
+    """Add node in sorted way"""
     def sorted_insert(self, value):
         if self.__head is None:
             self.__head = Node(value)
