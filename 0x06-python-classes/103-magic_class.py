@@ -1,8 +1,10 @@
 #!/usr/bin/python3
 from math import pi
 """ From Python Bytecode
-    To Python Class 
+    To Python Class
 """
+
+
 class MagicClass:
     """Class constructor"""
     def __init__(self, radius=0):
