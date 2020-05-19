@@ -10,6 +10,7 @@
     Allow compare with other
 """
 
+
 class Square:
     """Class constructor"""
     def __init__(self, size=0):
@@ -47,7 +48,7 @@ class Square:
 
     """True if self is equal than other"""
     def __eq__(self, other):
-       return self.area() == other.area()
+        return self.area() == other.area()
 
     """True if self is greater or equal than other"""
     def __ge__(self, other):
