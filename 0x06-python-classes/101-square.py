@@ -71,7 +71,8 @@ class Square:
             for ch in range(self.size):
                 to_print += ' ' * self.position[0]
                 to_print += '#' * self.size
-                to_print += '\n'
+                if ch != self.__size - 1:
+                    to_print += '\n'
         else:
             to_print = ''
         return to_print
