@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 class Node:
+    """Class constructor"""
     def __init__(self, data, next_node=None):
         self.data = data
         self.next_node = next_node
@@ -27,6 +28,7 @@ class Node:
 
 
 class SinglyLinkedList:
+    """Class constructor"""
     def __init__(self):
         self.__head = None
 
