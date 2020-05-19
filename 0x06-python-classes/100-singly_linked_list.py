@@ -14,10 +14,9 @@ class Node:
 
     @data.setter
     def data(self, value):
-        if type(value) is int:
-            self.__data = value
-        else:
+        if type(value) is not int:
             raise TypeError('data must be an integer')
+        self.__data = value
 
     @next_node.setter
     def next_node(self, value):
@@ -48,9 +47,11 @@ class SinglyLinkedList:
             self.__head = Node(value, self.__head)
         elif value > self.__head.data:
             actual = self.__head
-            while actual:
-                if actual.next_node and value < actual.next_node.data:
-                    actual.next_node = Node(value, actual.next_node)
-                else:
+            while actual is not None:
+                if not actual.next_node:
                     actual.next_node = Node(value)
+                    break
+                elif value < actual.next_node.data:
+                    actual.next_node = Node(value, actual.next_node)
+                    break
                 actual = actual.next_node
