@@ -1,0 +1,250 @@
+Test for add_integer() in 0-add_integer.py
+==========================================
+
+Usign ``add_integer``
+---------------------
+
+Import the function:
+    >>> add_integer = __import__("0-add_integer").add_integer
+
+-----------------------------
+-----------------------------
+    No b argument provided
+
+    >>> add_integer(2)
+    100
+
+    >>> add_integer(0)
+    98
+
+-----------------------------
+-----------------------------
+    No arguments provided
+
+    >>> add_integer()
+    Traceback (most recent call last):
+    TypeError: add_integer() missing 1 required positional argument: 'a'
+
+-----------------------------
+-----------------------------
+    None arguments
+
+    >>> add_integer(None, None)
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+
+    >>> add_integer(None)
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+
+    >>> add_integer(None, 10)
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+
+    >>> add_integer(10, None)
+    Traceback (most recent call last):
+    TypeError: b must be an integer
+
+-----------------------------
+-----------------------------
+    TypeError boolean
+
+    >>> add_integer(False, True)
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+
+    >>> add_integer(False)
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+
+    >>> add_integer(True, 10)
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+    
+    >>> add_integer(10, False)
+    Traceback (most recent call last):
+    TypeError: b must be an integer
+
+-----------------------------
+-----------------------------
+    TypeError String
+
+    >>> add_integer('Hello', 'TDD')
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+
+    >>> add_integer("hbtn")
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+
+    >>> add_integer('python', 98)
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+
+    >>> add_integer(98, "str")
+    Traceback (most recent call last):
+    TypeError: b must be an integer
+    
+-----------------------------
+-----------------------------
+    TypeError char
+
+    >>> add_integer('1', 'a')
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+
+    >>> add_integer("A")
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+
+    >>> add_integer('z', 98)
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+
+    >>> add_integer(98, "Z")
+    Traceback (most recent call last):
+    TypeError: b must be an integer
+
+-----------------------------
+-----------------------------
+    TypeError list - first arg
+
+    >>> add_integer([1,2,3], ['a'])
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+
+    >>> add_integer(["str1", "str2"])
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+
+    >>> add_integer([], 98)
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+
+    >>> add_integer(98, [True, False])
+    Traceback (most recent call last):
+    TypeError: b must be an integer
+
+-----------------------------
+-----------------------------
+    TypeError dictonary
+
+    >>> add_integer({'key_1': 1, 'key_2': 2}, {'key_1': 3, 'key_2': 4})
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+
+    >>> add_integer({'key_1': '1', 'key_2': 2})
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+
+    >>> add_integer({'key_1': 'str', 'key_2': 2}, 98)
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+
+    >>> add_integer(98, {'key_1': True, 'key_2': False})
+    Traceback (most recent call last):
+    TypeError: b must be an integer
+
+-----------------------------
+-----------------------------
+    TypeError set
+
+    >>> add_integer({1, 2}, {3, 4})
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+
+    >>> add_integer({'1', 2})
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+
+    >>> add_integer({'str', 2}, 98)
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+
+    >>> add_integer(98, {True, False})
+    Traceback (most recent call last):
+    TypeError: b must be an integer
+
+-----------------------------
+-----------------------------
+    TypeError tuple
+
+    >>> add_integer((1, 2), (3, 4))
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+
+    >>> add_integer(('1', 2))
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+
+    >>> add_integer(('str', 2), 98)
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+
+    >>> add_integer(98, (True, False))
+    Traceback (most recent call last):
+    TypeError: b must be an integer
+
+-----------------------------
+-----------------------------
+    Negative numbers
+
+    >>> add_integer(-2, -2)
+    -4
+
+    >>> add_integer(-2)
+    96
+
+    >>> add_integer(-5, 10)
+    5
+
+    >>> add_integer(10, -10)
+    0
+
+-----------------------------
+-----------------------------
+    Normal mode
+
+    >>> add_integer(0, 0)
+    0
+
+    >>> add_integer(0)
+    98
+
+    >>> add_integer(1024, 1024)
+    2048
+
+    >>> add_integer(3, 3)
+    6
+
+-----------------------------
+-----------------------------
+    Casting
+
+    >>> add_integer(float('inf'), float('inf'))
+    Traceback (most recent call last):
+              ...
+    OverflowError: cannot convert float infinity to integer
+
+    >>> add_integer(float('inf'))
+    Traceback (most recent call last):
+              ...
+    OverflowError: cannot convert float infinity to integer
+
+    >>> add_integer(float('inf'), 98)
+    Traceback (most recent call last):
+              ...
+    OverflowError: cannot convert float infinity to integer
+
+    >>> add_integer(int('inf'), 98)
+    Traceback (most recent call last):
+              ...
+    ValueError: invalid literal for int() with base 10: 'inf'
+
+    >>> add_integer(98, float('inf'))
+    Traceback (most recent call last):
+              ...
+    OverflowError: cannot convert float infinity to integer
+
+-----------------------------
+-----------------------------
