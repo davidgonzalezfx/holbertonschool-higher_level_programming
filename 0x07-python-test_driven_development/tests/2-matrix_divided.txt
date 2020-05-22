@@ -1,0 +1,99 @@
+Test for matrix_divided() in 2-matrix_divided.py
+==========================================
+
+Usign ``matrix_divided``
+---------------------
+
+Import the function:
+    >>> matrix_divided = __import__("2-matrix_divided").matrix_divided
+
+-----------------------------
+-----------------------------
+    No arguments
+
+    >>> matrix_divided()
+    Traceback (most recent call last):
+    TypeError: matrix_divided() missing 2 required positional arguments: 'matrix' and 'div'
+
+-----------------------------
+-----------------------------
+    None arguments
+
+    >>> matrix_divided(None, None)
+    Traceback (most recent call last):
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+-----------------------------
+-----------------------------
+    Only one argument
+
+    >>> matrix_divided(2)
+    Traceback (most recent call last):
+    TypeError: matrix_divided() missing 1 required positional argument: 'div'
+
+    >>> matrix_divided([1,2])
+    Traceback (most recent call last):
+    TypeError: matrix_divided() missing 1 required positional argument: 'div'
+
+    >>> matrix_divided('str')
+    Traceback (most recent call last):
+    TypeError: matrix_divided() missing 1 required positional argument: 'div'
+
+-----------------------------
+-----------------------------
+    No list of lists
+
+    >>> matrix_divided(1, 5)
+    Traceback (most recent call last):
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+    >>> matrix_divided('str', 5)
+    Traceback (most recent call last):
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+    >>> matrix_divided([10, 20], 5)
+    Traceback (most recent call last):
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+    >>> matrix_divided([[10, 20], 30, 40], 5)
+    Traceback (most recent call last):
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+-----------------------------
+-----------------------------
+    No int or float elements
+
+    >> matrix_divided
+
+-----------------------------
+-----------------------------
+    No same size
+
+    >> matrix_divided
+
+-----------------------------
+-----------------------------
+    Div not a number
+
+    >> matrix_divided
+
+-----------------------------
+-----------------------------
+    Div equal to zero
+
+    >> matrix_divided
+
+-----------------------------
+-----------------------------
+    Long float numbers
+
+    >> matrix_divided
+
+-----------------------------
+-----------------------------
+    Divide by infinite num
+
+    >> matrix_divided
+
+-----------------------------
+-----------------------------
