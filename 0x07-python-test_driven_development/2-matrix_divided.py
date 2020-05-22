@@ -19,21 +19,16 @@ def matrix_divided(matrix, div):
     if (not matrix or type(matrix) is not list
             or matrix is []
             or not all([type(row) is list for row in matrix])
-            or not all([[type(el) is int for el in row] for row in matrix])
-            or not all([[type(el) is float for el in row] for row in matrix])):
+            or not all([all([isinstance(el, (int, float)) for el in row]) for row in matrix])):
         raise TypeError(matrix_error)
+
 
     if len(set([len(rows) for rows in matrix])) is not 1:
         raise TypeError('Each row of the matrix must have the same size')
 
     if type(div) is not int and type(div) is not float:
         raise TypeError('div must be a number')
-    if div is 0:
+    if div == 0:
         raise ZeroDivisionError('division by zero')
 
-    rounded = []
-    for rows in matrix:
-        for el in rows:
-            rounded.append(round(el / div, 2))
-
-    return rounded
+    return  [[round(elmnt / div, 2) for elmnt in row] for row in matrix]
