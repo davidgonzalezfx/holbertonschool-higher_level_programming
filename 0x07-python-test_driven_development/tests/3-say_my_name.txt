@@ -1,0 +1,219 @@
+Test for say_my_name() in 3-say_my_name.txt
+==========================================
+
+Usign ``say_my_name()``
+---------------------
+
+Import the function:
+    >>> say_my_name = __import__("3-say_my_name").say_my_name
+
+-----------------------------
+-----------------------------
+    Variables to use
+
+    >>> valid_first_name = 'Julien'
+    >>> valid_last_name  = 'Holberton'
+    >>> invalid_none = None
+    >>> invalid_int = 99
+    >>> empty_str = ''
+    >>> one_char = 'd'
+    >>> invalid_list = [1, 2, 3]
+    >>> invalid_float = 3.141516
+    >>> invalid_set = {1, 2, 3}
+    >>> invalid_tuple = (1, 2, 3)
+    >>> invalid_dict = {'a': 1, 'b': 2}
+
+-----------------------------
+-----------------------------
+    No arguments
+
+    >>> say_my_name()
+    Traceback (most recent call last):
+    TypeError: say_my_name() missing 1 required positional argument: 'first_name'
+
+-----------------------------
+-----------------------------
+    None arguments
+
+    >>> say_my_name(invalid_none)
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+    >>> say_my_name(invalid_none, invalid_none)
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+-----------------------------
+-----------------------------
+    More than two arguments
+
+    >>> say_my_name(valid_last_name, valid_last_name, invalid_int)
+    Traceback (most recent call last):
+    TypeError: say_my_name() takes from 1 to 2 positional arguments but 3 were given
+
+    >>> say_my_name(invalid_none, invalid_list, invalid_tuple)
+    Traceback (most recent call last):
+    TypeError: say_my_name() takes from 1 to 2 positional arguments but 3 were given
+
+    >>> say_my_name(invalid_none, invalid_dict, invalid_float)
+    Traceback (most recent call last):
+    TypeError: say_my_name() takes from 1 to 2 positional arguments but 3 were given
+
+-----------------------------
+-----------------------------
+    Invalid int
+
+    >>> say_my_name(invalid_int)
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+    >>> say_my_name(invalid_int, invalid_int)
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+    >>> say_my_name(invalid_int, valid_last_name)
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+    
+    >>> say_my_name(valid_first_name, invalid_int)
+    Traceback (most recent call last):
+    TypeError: last_name must be a string
+
+-----------------------------
+-----------------------------
+    Empty str
+
+    >>> say_my_name(empty_str)
+    My name is  
+
+    >>> say_my_name(empty_str, empty_str)
+    My name is  
+
+    >>> say_my_name(invalid_float, empty_str)
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+    >>> say_my_name(empty_str, invalid_int)
+    Traceback (most recent call last):
+    TypeError: last_name must be a string
+    
+-----------------------------
+-----------------------------
+    One char
+
+    >>> say_my_name(one_char)
+    My name is d 
+
+    >>> say_my_name(one_char, one_char)
+    My name is d d
+
+    >>> say_my_name(invalid_float, one_char)
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+    >>> say_my_name(one_char, invalid_int)
+    Traceback (most recent call last):
+    TypeError: last_name must be a string
+
+-----------------------------
+-----------------------------
+    Invalid list
+
+    >>> say_my_name(invalid_list)
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+    >>> say_my_name(invalid_list, invalid_list)
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+    >>> say_my_name(invalid_list, valid_last_name)
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+    >>> say_my_name(valid_first_name, invalid_list)
+    Traceback (most recent call last):
+    TypeError: last_name must be a string
+
+-----------------------------
+-----------------------------
+    Invalid float
+
+    >>> say_my_name(invalid_float)
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+    >>> say_my_name(invalid_float, invalid_float)
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+    >>> say_my_name(invalid_float, valid_last_name)
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+    >>> say_my_name(valid_first_name, invalid_float)
+    Traceback (most recent call last):
+    TypeError: last_name must be a string
+
+-----------------------------
+-----------------------------
+    Invalid set
+
+    >>> say_my_name(invalid_set)
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+    >>> say_my_name(invalid_set, invalid_set)
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+    >>> say_my_name(invalid_set, valid_last_name)
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+    >>> say_my_name(valid_first_name, invalid_set)
+    Traceback (most recent call last):
+    TypeError: last_name must be a string
+
+-----------------------------
+-----------------------------
+    Invalid tuple
+
+    >>> say_my_name(invalid_tuple)
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+    >>> say_my_name(invalid_tuple, invalid_tuple)
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+    >>> say_my_name(invalid_tuple, valid_last_name)
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+    >>> say_my_name(valid_first_name, invalid_tuple)
+    Traceback (most recent call last):
+    TypeError: last_name must be a string
+
+-----------------------------
+-----------------------------
+    Invalid dictonary
+
+    >>> say_my_name(invalid_dict)
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+    >>> say_my_name(invalid_dict, invalid_dict)
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+    >>> say_my_name(invalid_dict, valid_last_name)
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+    >>> say_my_name(valid_first_name, invalid_dict)
+    Traceback (most recent call last):
+    TypeError: last_name must be a string
+
+-----------------------------
+-----------------------------
