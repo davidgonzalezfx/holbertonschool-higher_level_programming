@@ -53,6 +53,22 @@ Import the function:
 
 -----------------------------
 -----------------------------
+    More than two arguments
+
+    >>> matrix_divided(2, 3, 4)
+    Traceback (most recent call last):
+    TypeError: matrix_divided() takes 2 positional arguments but 3 were given
+
+    >>> matrix_divided([1,2], [3, 4], 0)
+    Traceback (most recent call last):
+    TypeError: matrix_divided() takes 2 positional arguments but 3 were given
+
+    >>> matrix_divided('str', (1,2), {3, 4})
+    Traceback (most recent call last):
+    TypeError: matrix_divided() takes 2 positional arguments but 3 were given
+
+-----------------------------
+-----------------------------
     No list
 
     >>> matrix_divided(1, 5)
