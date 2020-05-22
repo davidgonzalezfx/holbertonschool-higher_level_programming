@@ -1,0 +1,250 @@
+Test for text_indentation() in 5-text_indentation.txt
+==========================================
+
+Usign ``text_indentation()``
+---------------------
+
+Import the function:
+    >>> text_indentation = __import__("5-text_indentation").text_indentation
+
+-----------------------------
+-----------------------------
+    Variables to use
+
+    >>> inv_none = None
+    >>> inv_int = 98
+    >>> inv_float = 3.141516
+    >>> inv_bool = False
+    >>> inv_list = ['a', 'b']
+    >>> inv_set = {1, 2}
+    >>> inv_dict = {'a':1, 'b':2}
+    >>> inv_tuple = (3, 4)
+
+-----------------------------
+-----------------------------
+    No arguments
+
+    >>> text_indentation()
+    Traceback (most recent call last):
+    TypeError: text_indentation() missing 1 required positional argument: 'text'
+
+-----------------------------
+-----------------------------
+    Two arguments
+
+    >>> text_indentation(1, 2)
+    Traceback (most recent call last):
+    TypeError: text_indentation() takes 1 positional argument but 2 were given
+
+    >>> text_indentation('hello', 'World')
+    Traceback (most recent call last):
+    TypeError: text_indentation() takes 1 positional argument but 2 were given
+
+-----------------------------
+-----------------------------
+    None argument
+
+    >>> text_indentation(None)
+    Traceback (most recent call last):
+    TypeError: text must be a string
+
+-----------------------------
+-----------------------------
+    Int argument
+
+    >>> text_indentation(inv_int)
+    Traceback (most recent call last):
+    TypeError: text must be a string
+
+-----------------------------
+-----------------------------
+    Float argument
+
+    >>> text_indentation(inv_float)
+    Traceback (most recent call last):
+    TypeError: text must be a string
+
+-----------------------------
+-----------------------------
+    Bool argument 
+
+    >>> text_indentation(inv_bool)
+    Traceback (most recent call last):
+    TypeError: text must be a string
+
+-----------------------------
+-----------------------------
+    List argument 
+
+    >>> text_indentation(inv_list)
+    Traceback (most recent call last):
+    TypeError: text must be a string
+
+-----------------------------
+-----------------------------
+    Set argument 
+
+    >>> text_indentation(inv_set)
+    Traceback (most recent call last):
+    TypeError: text must be a string
+
+-----------------------------
+-----------------------------
+    Dictonary argument 
+
+    >>> text_indentation(inv_dict)
+    Traceback (most recent call last):
+    TypeError: text must be a string
+
+-----------------------------
+-----------------------------
+    Tuple argument 
+
+    >>> text_indentation(inv_tuple)
+    Traceback (most recent call last):
+    TypeError: text must be a string
+
+-----------------------------
+-----------------------------
+    Test for '.'
+
+    >>> text_indentation('Line one.Line two')
+    Line one.
+    <BLANKLINE>
+    Line two
+
+    >>> text_indentation('.Line two')
+    .
+    <BLANKLINE>
+    Line two
+
+    >>> text_indentation('Line one.')
+    Line one.
+    <BLANKLINE>
+
+    >>> text_indentation('Line on.e')
+    Line on.
+    <BLANKLINE>
+    e
+
+    >>> text_indentation('Line one.Line two.Line three')
+    Line one.
+    <BLANKLINE>
+    Line two.
+    <BLANKLINE>
+    Line three
+
+-----------------------------
+-----------------------------
+    Test for '?'
+
+    >>> text_indentation('Line one?Line two')
+    Line one?
+    <BLANKLINE>
+    Line two
+
+    >>> text_indentation('?Line two')
+    ?
+    <BLANKLINE>
+    Line two
+
+    >>> text_indentation('Line one?')
+    Line one?
+    <BLANKLINE>
+
+    >>> text_indentation('Line on?e')
+    Line on?
+    <BLANKLINE>
+    e
+
+    >>> text_indentation('Line one?Line two?Line three')
+    Line one?
+    <BLANKLINE>
+    Line two?
+    <BLANKLINE>
+    Line three
+
+-----------------------------
+-----------------------------
+    Test for ':'
+
+    >>> text_indentation('Line one:Line two')
+    Line one:
+    <BLANKLINE>
+    Line two
+
+    >>> text_indentation(':Line two')
+    :
+    <BLANKLINE>
+    Line two
+
+    >>> text_indentation('Line one:')
+    Line one:
+    <BLANKLINE>
+
+    >>> text_indentation('Line on:e')
+    Line on:
+    <BLANKLINE>
+    e
+
+    >>> text_indentation('Line one:Line two:Line three')
+    Line one:
+    <BLANKLINE>
+    Line two:
+    <BLANKLINE>
+    Line three
+
+-----------------------------
+-----------------------------
+    Mutiple delimitiers
+
+    >>> text_indentation('.Line one?Line two:')
+    .
+    <BLANKLINE>
+    Line one?
+    <BLANKLINE>
+    Line two:
+    <BLANKLINE>
+
+    >>> text_indentation('?Line.two:')
+    ?
+    <BLANKLINE>
+    Line.
+    <BLANKLINE>
+    two:
+    <BLANKLINE>
+
+    >>> text_indentation('Li:ne:on:e?')
+    Li:
+    <BLANKLINE>
+    ne:
+    <BLANKLINE>
+    on:
+    <BLANKLINE>
+    e?
+    <BLANKLINE>
+
+    >>> text_indentation('.?:')
+    .
+    <BLANKLINE>
+    ?
+    <BLANKLINE>
+    :
+    <BLANKLINE>
+
+-----------------------------
+-----------------------------
+    Without delimitiers
+
+    >>> text_indentation('Hello world without delimitiers')
+    Hello world without delimitiers
+
+-----------------------------
+-----------------------------
+    Empty string argument 
+
+    >>> text_indentation('')
+    
+
+-----------------------------
+-----------------------------
