@@ -1,0 +1,152 @@
+Test for print_square() in 4-print_square.txt
+==========================================
+
+Usign ``print_square()``
+---------------------
+
+Import the function:
+    >>> print_square = __import__("4-print_square").print_square
+
+-----------------------------
+-----------------------------
+    Variables to use
+
+    >>> valid_int = 3
+    >>> valid_int2  = 5
+    >>> valid_int3  = 0
+    >>> invalid_none = None
+    >>> invalid_str = 'str_long'
+    >>> empty_str = ''
+    >>> invalid_list = [1, 2, 3]
+    >>> invalid_int = -5
+    >>> invalid_float = 4.2
+    >>> invalid_float2 = -4.2
+    >>> invalid_set = {1, 2, 3}
+    >>> invalid_tuple = (1, 2, 3)
+    >>> invalid_dict = {'a': 1, 'b': 2}
+    >>> infinite = float('inf')
+
+-----------------------------
+-----------------------------
+    No arguments
+
+    >>> print_square()
+    Traceback (most recent call last):
+    TypeError: print_square() missing 1 required positional argument: 'size'
+
+-----------------------------
+-----------------------------
+    Two arguments
+
+    >>> print_square(1, 2)
+    Traceback (most recent call last):
+    TypeError: print_square() takes 1 positional argument but 2 were given
+
+    >>> print_square(invalid_str, invalid_none)
+    Traceback (most recent call last):
+    TypeError: print_square() takes 1 positional argument but 2 were given
+
+-----------------------------
+-----------------------------
+    None argument
+
+    >>> print_square(invalid_none)
+    Traceback (most recent call last):
+    TypeError: size must be an integer
+
+-----------------------------
+-----------------------------
+    Invalid string
+
+    >>> print_square(invalid_str)
+    Traceback (most recent call last):
+    TypeError: size must be an integer
+
+-----------------------------
+-----------------------------
+    Empty string
+
+    >>> print_square(empty_str)
+    Traceback (most recent call last):
+    TypeError: size must be an integer
+
+-----------------------------
+-----------------------------
+    Invalid list
+
+    >>> print_square(invalid_list)
+    Traceback (most recent call last):
+    TypeError: size must be an integer
+
+-----------------------------
+-----------------------------
+    Invalid int
+
+    >>> print_square(invalid_int)
+    Traceback (most recent call last):
+    ValueError: size must be >= 0
+
+-----------------------------
+-----------------------------
+    Invalid float
+
+    >>> print_square(invalid_float)
+    Traceback (most recent call last):
+    TypeError: size must be an integer
+
+    >>> print_square(invalid_float2)
+    Traceback (most recent call last):
+    TypeError: size must be an integer
+
+-----------------------------
+-----------------------------
+    Invalid set
+
+    >>> print_square(invalid_set)
+    Traceback (most recent call last):
+    TypeError: size must be an integer
+
+-----------------------------
+-----------------------------
+    Invalid tuple
+
+    >>> print_square(invalid_tuple)
+    Traceback (most recent call last):
+    TypeError: size must be an integer
+
+-----------------------------
+-----------------------------
+    Invalid dictonary
+
+    >>> print_square(invalid_dict)
+    Traceback (most recent call last):
+    TypeError: size must be an integer
+
+-----------------------------
+-----------------------------
+    Infinite
+
+    >>> print_square(infinite)
+    Traceback (most recent call last):
+    TypeError: size must be an integer
+
+-----------------------------
+-----------------------------
+    Valid
+
+    >>> print_square(valid_int)
+    ###
+    ###
+    ###
+
+    >>> print_square(valid_int2)
+    #####
+    #####
+    #####
+    #####
+    #####
+
+    >>> print_square(valid_int3)
+
+-----------------------------
+-----------------------------
