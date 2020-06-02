@@ -1,4 +1,9 @@
 #!/usr/bin/python3
+"""
+file: 0-lookup.py
+Class:
+-> lookup
+"""
 
 
 def lookup(obj):
