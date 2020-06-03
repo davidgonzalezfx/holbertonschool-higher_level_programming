@@ -17,13 +17,12 @@ class Student:
 
     def to_json(self, attrs=None):
         ''' Method that returns directory description with filter '''
-        res = {}
-        if attrs:
-            for attr in attrs:
-                if attr in self.__dict__:
-                    res[attr] = self.__dict__[attr]
-        else:
-            for attr in self.__dict__:
-                res[attr] = self.__dict__[attr]
 
-        return res
+        if isinstance(attrs, list) and all(isinstance(attr, str)
+                                           for attr in attrs):
+            res = {}
+            for i in attrs:
+                if i in self.__dict__:
+                    res[i] = self.__dict__[i]
+            return res
+        return self.__dict__
