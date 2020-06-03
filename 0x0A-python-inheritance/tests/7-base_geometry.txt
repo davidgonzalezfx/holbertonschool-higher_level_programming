@@ -55,6 +55,10 @@ Import the class:
     Traceback (most recent call last):
     TypeError: integer_validator() missing 1 required positional argument: 'value'
 
+    >>> obj.integer_validator(0, 0, 0, 0)
+    Traceback (most recent call last):
+    TypeError: integer_validator() takes 3 positional arguments but 5 were given
+
     >>> obj.integer_validator(1, 1)
 
     >>> obj.integer_validator(1, True)
