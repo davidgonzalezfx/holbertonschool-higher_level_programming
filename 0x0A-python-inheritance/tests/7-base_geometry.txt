@@ -66,6 +66,8 @@ Import the class:
     >>> obj.integer_validator(1, 1)
 
     >>> obj.integer_validator("str", True)
+    
+    >>> obj.integer_validator(1, True)
 
     >>> obj.integer_validator(1, [])
     Traceback (most recent call last):
