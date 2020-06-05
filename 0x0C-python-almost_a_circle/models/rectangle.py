@@ -4,6 +4,7 @@ file: rectangle.py
 classes:
 -> Rectangle
 '''
+from models.base import Base
 
 
 class Rectangle(Base):
