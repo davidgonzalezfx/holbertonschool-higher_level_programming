@@ -87,3 +87,9 @@ class Rectangle(Base):
         print('\n' * self.y, end='')
         for rows in range(0, self.height):
             print('{}{}'.format(' ' * self.x, '#' * self.width))
+
+    def __str__(self):
+        ''' [Rectangle] (<id>) <x>/<y> - <width>/<height> '''
+        txt = '[Rectangle] ({}) {}/{} - {}/{}'.format(
+            self.id, self.x, self.y, self.width, self.height)
+        return txt
