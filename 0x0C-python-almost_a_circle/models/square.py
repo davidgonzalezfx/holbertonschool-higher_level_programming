@@ -24,6 +24,16 @@ class Square(Rectangle):
         """ size setter """
         self.width = value
         self.height = value
+    
+    def update(self, *args, **kwargs):
+        ''' assigns an argument to each attribute '''
+        available = ['id', 'size', 'x', 'y']
+        if args is not None and len(args) != 0:
+            for attr in range(0, len(args)):
+                setattr(self, available[attr], args[attr])
+        else:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
 
     def __str__(self):
         ''' [Rectangle] (<id>) <x>/<y> - <width>/<height> '''
