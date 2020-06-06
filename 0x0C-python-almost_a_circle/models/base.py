@@ -38,3 +38,22 @@ class Base:
 
         with open(cls.__name__ + '.json', 'w') as json_file:
             json_file.write(cls.to_json_string(obj_dict))
+
+    @staticmethod
+    def from_json_string(json_string):
+        ''' JSON string to dictionary '''
+        if json_string is None or json_string is '':
+            return []
+
+        return json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        ''' Dictionary to Instance '''
+        if cls.__name__ == 'Rectangle':
+            tmp = cls(1, 1)
+        elif cls.__name__ == 'Square':
+            tmp = cls(1)
+
+        tmp.update(**dictionary)
+        return tmp
