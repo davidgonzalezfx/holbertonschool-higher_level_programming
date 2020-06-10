@@ -236,7 +236,7 @@ class test_create(unittest.TestCase):
         self.assertFalse(r == check)
 
 
-class tests_save_file(unittest.TestCase):
+class test_save_file(unittest.TestCase):
     ''' test for save_to_file method '''
 
     def setUp(self):
@@ -306,7 +306,7 @@ class tests_save_file(unittest.TestCase):
             self.assertEqual(file.read(), check)
 
 
-class Test_load_file(unittest.TestCase):
+class test_load_file(unittest.TestCase):
     ''' test for load_from_file method '''
 
     def setUp(self):
