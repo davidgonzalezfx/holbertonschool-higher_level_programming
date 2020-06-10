@@ -33,7 +33,7 @@ class Base:
     def save_to_file(cls, list_objs):
         ''' JSON string to file '''
         obj_dict = []
-        if len(list_objs) > 0:
+        if list_objs and len(list_objs) > 0:
             for obj in list_objs:
                 obj_dict.append(obj.to_dictionary())
 
@@ -100,7 +100,7 @@ class Base:
                     attrs = ['id', 'width', 'height', 'x', 'y']
                 else:
                     attrs = ['id', 'size', 'x', 'y']
-    
+
                 csv_dict = csv.DictReader(file, fieldnames=attrs)
                 list_dict = []
                 for row in csv_dict:

@@ -11,6 +11,7 @@ Classes:
 '''
 import unittest
 import json
+import os
 from models.base import Base
 from models.rectangle import Rectangle
 from models.square import Square
@@ -211,10 +212,131 @@ class test_create(unittest.TestCase):
         self.assertFalse(r is check)
         self.assertFalse(r == check)
 
-
     def test_squares(self):
         ''' Squares instances '''
         r = Square(5)
         check = Rectangle.create(**r.to_dictionary())
         self.assertFalse(r is check)
         self.assertFalse(r == check)
+
+
+class tests_save_file(unittest.TestCase):
+    ''' test for save_to_file method '''
+
+    def tearDown(self):
+        ''' Executed after each class method '''
+        try:
+            remove('Rectangle.json')
+        except BaseException:
+            pass
+        try:
+            remove('Square.json')
+        except BaseException:
+            pass
+
+    def test_none_rectangle(self):
+        ''' None as argument - Rectangle '''
+        Rectangle.save_to_file(None)
+        self.assertTrue(os.path.isfile('Rectangle.json'))
+        with open('Rectangle.json', 'r') as file:
+            self.assertEqual(file.read(), '[]')
+
+    def test_none_square(self):
+        ''' None as argument - Square '''
+        Square.save_to_file(None)
+        self.assertTrue(os.path.isfile('Square.json'))
+        with open('Square.json', 'r') as file:
+            self.assertEqual(file.read(), '[]')
+
+    def test_empty_list(self):
+        ''' Empty list - Rectangle '''
+        arg = []
+        Square.save_to_file(arg)
+        with open('Square.json', 'r') as file:
+            self.assertEqual(file.read(), '[]')
+
+    def test_empty_list_square(self):
+        ''' Empty list - Square '''
+        arg = []
+        Square.save_to_file(arg)
+        with open('Square.json', 'r') as file:
+            self.assertEqual(file.read(), '[]')
+
+    def test_rectangle(self):
+        ''' Rectangle instances '''
+        r1 = Rectangle(10, 7, 2, 8)
+        r2 = Rectangle(2, 4)
+        arg = [r1, r2]
+        check = """[{"id": 13, "width": 10, "height": 7, "x": 2, "y": 8}, """
+        check = check + '{"id": 14, "width": 2, "height": 4, "x": 0, "y": 0}]'
+
+        Rectangle.save_to_file(arg)
+        with open('Rectangle.json', 'r') as file:
+            self.assertEqual(file.read(), check)
+
+    def test_square(self):
+        ''' Square instances '''
+        s1 = Square(7, 2, 8)
+        s2 = Square(2)
+        arg = [s1, s2]
+        check = """[{"id": 15, "size": 7, "x": 2, "y": 8}, """
+        check = check + """{"id": 16, "size": 2, "x": 0, "y": 0}]"""
+        Square.save_to_file(arg)
+        with open('Square.json', 'r') as file:
+            self.assertEqual(file.read(), check)
+
+
+class Test_load_file(unittest.TestCase):
+    ''' test for load_from_file method '''
+
+    def tearDown(self):
+        ''' Executed after each class method '''
+        try:
+            remove('Rectangle.json')
+        except BaseException:
+            pass
+        try:
+            remove('Square.json')
+        except BaseException:
+            pass
+
+    def test_not_found(self):
+        ''' File not found '''
+        arg = Rectangle.load_from_file()
+        check = []
+        self.assertEqual(arg, check)
+
+    def test_empty_file_list(self):
+        ''' Empty list - Rectangle '''
+        Rectangle.save_to_file([])
+        arg = Rectangle.load_from_file()
+        check = []
+        self.assertEqual(arg, check)
+
+    def test_rectangle(self):
+        ''' Rectangle instances '''
+        r1 = Rectangle(10, 7, 2, 8)
+        r2 = Rectangle(2, 4, 0, 0, 1)
+        file = Rectangle.save_to_file([r1, r2])
+        load = Rectangle.load_from_file()
+        r3 = load[0].to_dictionary()
+        r4 = load[1].to_dictionary()
+
+        self.assertEqual(type(load), list)
+        self.assertEqual(type(load[0]), Rectangle)
+        self.assertEqual(r3, r1.to_dictionary())
+        self.assertEqual(r4, r2.to_dictionary())
+
+    def test_square(self):
+        ''' Square instances '''
+        s1 = Square(10, 2, 8)
+        s2 = Square(2, 0, 0, 1)
+        file = Square.save_to_file([s1, s2])
+        load = Square.load_from_file()
+        s3 = load[0].to_dictionary()
+        s4 = load[1].to_dictionary()
+
+        self.assertEqual(type(load), list)
+        self.assertEqual(type(load[0]), Square)
+        self.assertEqual(s3, s1.to_dictionary())
+        self.assertEqual(s4, s2.to_dictionary())
