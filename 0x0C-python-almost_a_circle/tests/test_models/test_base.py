@@ -61,6 +61,10 @@ class test_constructor(unittest.TestCase):
 class test_inheritance(unittest.TestCase):
     ''' tests for inheritance and types'''
 
+    def setUp(self):
+        ''' Set up for all methods '''
+        Base._Base__nb_objects = 0
+
     def test_type(self):
         ''' object created is instance '''
         obj = Base(1)
@@ -79,6 +83,10 @@ class test_inheritance(unittest.TestCase):
 
 class test_to_json(unittest.TestCase):
     ''' tests for to_json_string method'''
+
+    def setUp(self):
+        ''' Set up for all methods '''
+        Base._Base__nb_objects = 0
 
     def test_no_args(self):
         ''' no arguments passed '''
@@ -135,6 +143,10 @@ class test_to_json(unittest.TestCase):
 class test_from_json(unittest.TestCase):
     ''' tests for from_json_string method'''
 
+    def setUp(self):
+        ''' Set up for all methods '''
+        Base._Base__nb_objects = 0
+
     def test_no_args(self):
         ''' no arguments passed '''
         with self.assertRaises(TypeError):
@@ -174,7 +186,7 @@ class test_from_json(unittest.TestCase):
         ''' rectangles to json '''
         init = '''[
             {"id": 1, "width": 3, "height": 4, "x": 10, "y": 10},
-            {"id": 6, "width": 5, "height": 1, "x": 0, "y": 0}
+            {"id": 1, "width": 5, "height": 1, "x": 0, "y": 0}
         ]'''
         r = Rectangle(3, 4, 10, 10, 1)
         r1 = Rectangle(5, 1)
@@ -185,7 +197,7 @@ class test_from_json(unittest.TestCase):
         ''' squares to json '''
         init = '''[
             {"id": 10, "size": 2, "x": 2, "y": 2},
-            {"id": 7, "size": 5, "x": 0, "y": 0}
+            {"id": 1, "size": 5, "x": 0, "y": 0}
         ]'''
         s = Square(2, 2, 2, 10)
         s1 = Square(5)
@@ -205,6 +217,10 @@ class test_from_json(unittest.TestCase):
 class test_create(unittest.TestCase):
     ''' test for create method '''
 
+    def setUp(self):
+        ''' Set up for all methods '''
+        Base._Base__nb_objects = 0
+
     def test_rectangles(self):
         ''' Rectangle instances '''
         r = Rectangle(3, 4, 10, 10)
@@ -222,6 +238,10 @@ class test_create(unittest.TestCase):
 
 class tests_save_file(unittest.TestCase):
     ''' test for save_to_file method '''
+
+    def setUp(self):
+        ''' Set up for all methods '''
+        Base._Base__nb_objects = 0
 
     def tearDown(self):
         ''' Executed after each class method '''
@@ -267,8 +287,8 @@ class tests_save_file(unittest.TestCase):
         r1 = Rectangle(10, 7, 2, 8)
         r2 = Rectangle(2, 4)
         arg = [r1, r2]
-        check = """[{"id": 13, "width": 10, "height": 7, "x": 2, "y": 8}, """
-        check = check + '{"id": 14, "width": 2, "height": 4, "x": 0, "y": 0}]'
+        check = """[{"id": 1, "width": 10, "height": 7, "x": 2, "y": 8}, """
+        check = check + '{"id": 2, "width": 2, "height": 4, "x": 0, "y": 0}]'
 
         Rectangle.save_to_file(arg)
         with open('Rectangle.json', 'r') as file:
@@ -279,8 +299,8 @@ class tests_save_file(unittest.TestCase):
         s1 = Square(7, 2, 8)
         s2 = Square(2)
         arg = [s1, s2]
-        check = """[{"id": 15, "size": 7, "x": 2, "y": 8}, """
-        check = check + """{"id": 16, "size": 2, "x": 0, "y": 0}]"""
+        check = """[{"id": 1, "size": 7, "x": 2, "y": 8}, """
+        check = check + """{"id": 2, "size": 2, "x": 0, "y": 0}]"""
         Square.save_to_file(arg)
         with open('Square.json', 'r') as file:
             self.assertEqual(file.read(), check)
@@ -288,6 +308,10 @@ class tests_save_file(unittest.TestCase):
 
 class Test_load_file(unittest.TestCase):
     ''' test for load_from_file method '''
+
+    def setUp(self):
+        ''' Set up for all methods '''
+        Base._Base__nb_objects = 0
 
     def tearDown(self):
         ''' Executed after each class method '''
