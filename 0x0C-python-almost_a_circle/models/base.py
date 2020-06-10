@@ -33,7 +33,7 @@ class Base:
     def save_to_file(cls, list_objs):
         ''' JSON string to file '''
         obj_dict = []
-        if list_objs and len(list_objs) > 0:
+        if list_objs:
             for obj in list_objs:
                 obj_dict.append(obj.to_dictionary())
 
