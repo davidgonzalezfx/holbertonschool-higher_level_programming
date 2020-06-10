@@ -24,10 +24,10 @@ class Base:
     @staticmethod
     def to_json_string(list_dictionaries):
         ''' Dictionary to JSON string '''
-        if list_dictionaries is None or list_dictionaries is []:
-            return '[]'
-        else:
+        if list_dictionaries:
             return json.dumps(list_dictionaries)
+        else:
+            return '[]'
 
     @classmethod
     def save_to_file(cls, list_objs):
