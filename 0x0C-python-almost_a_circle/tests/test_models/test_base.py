@@ -226,11 +226,11 @@ class tests_save_file(unittest.TestCase):
     def tearDown(self):
         ''' Executed after each class method '''
         try:
-            remove('Rectangle.json')
+            os.remove('Rectangle.json')
         except BaseException:
             pass
         try:
-            remove('Square.json')
+            os.remove('Square.json')
         except BaseException:
             pass
 
