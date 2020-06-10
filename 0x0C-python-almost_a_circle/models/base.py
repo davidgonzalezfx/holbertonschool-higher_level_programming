@@ -43,10 +43,10 @@ class Base:
     @staticmethod
     def from_json_string(json_string):
         ''' JSON string to dictionary '''
-        if json_string and len(json_string) > 0:
-            json.loads(json_string)
+        if not json_string or len(json_string) == 0:
+            return []
 
-        return []
+        return json.loads(json_string)
 
     @classmethod
     def create(cls, **dictionary):
