@@ -15,10 +15,14 @@ if __name__ == '__main__':
         host='localhost')
 
     cursor = db.cursor()
-    cursor.execute("SELECT * from states\
-                WHERE name LIKE 'N%'\
-                ORDER BY states.id")
+    cursor.execute("SELECT * \
+                    FROM states \
+                    WHERE CONVERT(`name` USING Latin1) \
+                    COLLATE Latin1_General_CS \
+                    LIKE 'N%';")
 
     states = cursor.fetchall()
     for state in states:
         print(state)
+    cursor.close()
+    db.close()
