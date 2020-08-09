@@ -16,7 +16,7 @@ if __name__ == '__main__':
     InstanceSession = sessionmaker(bind=engine)
     session = InstanceSession()
 
-    state = session.query(State).filter(State.id == 2)
+    states = session.query(State).filter(State.id == 2)
 
     for el in states:
         el.name = 'New Mexico'
