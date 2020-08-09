@@ -16,13 +16,20 @@ if __name__ == '__main__':
 
     cursor = db.cursor()
     cursor.execute(
-        'SELECT cities.name FROM cities INNER JOIN states ON \
-        cities.state_id = states.id WHERE states.name = %s \
-        ORDER BY cities.id', (argv[4], ))
+        'SELECT cities.name FROM cities\
+        INNER JOIN states ON cities.state_id = states.id\
+        WHERE states.name = %s \
+        ORDER BY cities.id ASC', (sys.argv[4], ))
 
-    states = cursor.fetchall()
-    for state in states:
-        print(", ".join(state[1]))
+    cities = cursor.fetchall()
+
+    idx = 0
+    for city in cities:
+        if idx != 0:
+            print(", ", end="")
+        print("%s" % city, end="")
+        idx += 1
+    print("")
 
     cursor.close()
     db.close()
